@@ -6,15 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Weaver – KI-Arbeitsplattform für Content, Automatisierung und digitale Workflows | Creatorbase</title>
-  <meta name="description" content="Weaver von S The Empire: KI-Chat, eigene Assistenten, Bildgenerierung und digitale Workflows. Erfahre, wie die Plattform funktioniert – mit LiORA als Praxisbeispiel.">
+  <meta name="description" content="Weaver von S The Empire: KI-Chat, eigene Assistenten, Content, Bildgenerierung und digitale Workflows. Mit LiORA als Praxisbeispiel für Strategie, Content und visuelle Produktion.">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f5f0ea">
+
   <link rel="canonical" href="https://lianmirror.github.io/artikel/weaver-unterschaetzte-ki-plattform.html">
 
   <meta property="og:type" content="article">
   <meta property="og:locale" content="de_CH">
   <meta property="og:site_name" content="Creatorbase">
   <meta property="og:title" content="Weaver – die KI-Arbeitsplattform für Content, Automatisierung und digitale Workflows">
-  <meta property="og:description" content="Weaver entdecken: KI-Chat, eigene Assistenten, Bildgenerierung und kreative Workflows – mit LiORA als Praxisbeispiel.">
+  <meta property="og:description" content="Eine Plattform für KI-Chat, eigene Assistenten und kreative Workflows. Entdecke Weaver und das Praxisbeispiel LiORA.">
   <meta property="og:url" content="https://lianmirror.github.io/artikel/weaver-unterschaetzte-ki-plattform.html">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-16VT5XKL4H"></script>
@@ -28,742 +30,1802 @@
   <style>
     :root {
       --cream:#f5f0ea;
+      --cream-dark:#ebe1da;
       --brown:#2d211d;
+      --brown-soft:#44342e;
       --terracotta:#b57b67;
       --lavender:#c8b9e8;
       --lavender-light:#e5ddf3;
       --white:#fffdfb;
       --line:#d9cec7;
+      --muted:#75675f;
     }
 
     * {box-sizing:border-box}
-    html {scroll-behavior:smooth}
+
+    html {
+      scroll-behavior:smooth;
+    }
 
     body {
       margin:0;
       background:var(--cream);
       color:var(--brown);
       font-family:Arial,Helvetica,sans-serif;
-      line-height:1.75;
+      line-height:1.8;
+      -webkit-font-smoothing:antialiased;
     }
 
     a {color:inherit}
-    .container {width:min(1120px,calc(100% - 40px));margin:auto}
+    img {max-width:100%;display:block}
+    button {font:inherit}
 
-    header {border-bottom:1px solid var(--line)}
+    ::selection {
+      background:var(--lavender);
+      color:var(--brown);
+    }
+
+    .container {
+      width:min(1120px,calc(100% - 40px));
+      margin:auto;
+    }
+
+    /* NAVIGATION */
+
+    .site-header {
+      border-bottom:1px solid var(--line);
+      background:rgba(245,240,234,.96);
+    }
+
     .nav {
-      min-height:82px;
+      min-height:84px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:24px;
     }
+
     .logo {
       text-decoration:none;
       font-size:19px;
       font-weight:800;
       letter-spacing:2px;
+      white-space:nowrap;
     }
-    .logo span {color:var(--terracotta)}
-    .nav-links {display:flex;gap:24px;flex-wrap:wrap}
+
+    .logo span {
+      color:var(--terracotta);
+    }
+
+    .nav-links {
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:24px;
+    }
+
     .nav-links a {
       text-decoration:none;
       text-transform:uppercase;
       font-size:10px;
       letter-spacing:1.3px;
+      transition:color .25s ease;
     }
-    .nav-links a:hover {color:var(--terracotta)}
 
-    .hero {padding:90px 0 75px}
+    .nav-links a:hover {
+      color:var(--terracotta);
+    }
+
+    /* HERO */
+
+    .hero {
+      position:relative;
+      overflow:hidden;
+      padding:105px 0 100px;
+    }
+
+    .hero::after {
+      content:"";
+      position:absolute;
+      width:390px;
+      height:390px;
+      right:-170px;
+      top:30px;
+      border:1px solid rgba(181,123,103,.22);
+      border-radius:50%;
+      pointer-events:none;
+    }
+
     .eyebrow {
       color:var(--terracotta);
       font-size:10px;
       font-weight:800;
-      letter-spacing:2px;
+      letter-spacing:2.1px;
       text-transform:uppercase;
     }
+
     h1,h2,h3 {
       font-family:Georgia,"Times New Roman",serif;
       font-weight:400;
     }
+
     h1 {
-      max-width:1020px;
-      margin:24px 0;
-      font-size:clamp(42px,6.5vw,82px);
+      max-width:1010px;
+      margin:26px 0 30px;
+      font-size:clamp(43px,7vw,89px);
       line-height:1.08;
-      letter-spacing:-1.8px;
+      letter-spacing:-2px;
+      overflow-wrap:break-word;
     }
-    h1 em {color:var(--terracotta);font-weight:400}
-    .intro {
-      max-width:760px;
-      padding-left:22px;
+
+    h1 em {
+      color:var(--terracotta);
+      font-weight:400;
+    }
+
+    .hero-intro {
+      max-width:750px;
+      padding-left:23px;
       border-left:2px solid var(--terracotta);
       font-family:Georgia,serif;
       font-size:clamp(19px,2.4vw,25px);
-      line-height:1.55;
+      line-height:1.6;
     }
+
     .hero-meta {
-      margin-top:30px;
-      color:#77685f;
-      font-size:12px;
+      margin-top:33px;
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:.5px;
     }
+
+    .hero-actions {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:14px;
+      margin-top:32px;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 23px;
+      border:1px solid var(--brown);
+      background:var(--brown);
+      color:var(--white);
+      text-decoration:none;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.6px;
+      transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+    }
+
+    .btn:hover {
+      background:var(--terracotta);
+      border-color:var(--terracotta);
+      transform:translateY(-2px);
+    }
+
+    .btn-outline {
+      background:transparent;
+      color:var(--brown);
+    }
+
+    .btn-outline:hover {
+      color:var(--white);
+    }
+
+    /* DARK EDITORIAL STRIP */
+
+    .statement {
+      background:var(--brown);
+      color:var(--cream);
+      padding:88px 0;
+      overflow:hidden;
+    }
+
+    .statement-grid {
+      display:grid;
+      grid-template-columns:1fr 2fr;
+      gap:55px;
+      align-items:start;
+    }
+
+    .statement .eyebrow {
+      color:#d9b7aa;
+    }
+
+    .statement h2 {
+      margin:0;
+      max-width:800px;
+      font-size:clamp(36px,5vw,64px);
+      line-height:1.18;
+    }
+
+    .statement h2 em {
+      color:var(--lavender);
+      font-weight:400;
+    }
+
+    .statement p {
+      margin:26px 0 0;
+      max-width:620px;
+      color:#dfd3cb;
+      font-size:14px;
+    }
+
+    /* ARTICLE */
 
     .article-layout {
       display:grid;
-      grid-template-columns:230px minmax(0,1fr);
+      grid-template-columns:220px minmax(0,1fr);
       gap:75px;
-      padding:25px 0 110px;
+      padding:95px 0 120px;
     }
+
     .sidebar {
       position:sticky;
-      top:25px;
+      top:28px;
       align-self:start;
       font-size:12px;
     }
+
     .sidebar strong {
       display:block;
-      margin-bottom:20px;
+      margin-bottom:19px;
       font-size:10px;
       letter-spacing:1.5px;
       text-transform:uppercase;
     }
+
     .sidebar a {
       display:block;
-      padding:9px 0;
+      padding:10px 0;
       text-decoration:none;
       border-bottom:1px solid var(--line);
+      transition:color .2s ease;
     }
-    .sidebar a:hover {color:var(--terracotta)}
 
-    .content {min-width:0;max-width:760px}
+    .sidebar a:hover {
+      color:var(--terracotta);
+    }
+
+    .content {
+      min-width:0;
+      max-width:760px;
+    }
+
     .content h2 {
-      margin:65px 0 22px;
-      font-size:clamp(32px,4vw,45px);
-      line-height:1.15;
-      scroll-margin-top:30px;
+      margin:78px 0 24px;
+      font-size:clamp(33px,4vw,47px);
+      line-height:1.18;
+      letter-spacing:-.6px;
+      scroll-margin-top:35px;
     }
+
     .content h3 {
-      margin:35px 0 12px;
-      font-size:26px;
-      line-height:1.25;
+      margin:37px 0 14px;
+      font-size:27px;
+      line-height:1.3;
     }
-    .content p {font-size:15px;margin:0 0 22px}
-    .content ul,.content ol {padding-left:24px;margin:0 0 28px}
-    .content li {font-size:15px;margin-bottom:10px}
-    .content a {color:#975f4e;text-underline-offset:3px}
-    .content strong {font-weight:700}
+
+    .content p {
+      margin:0 0 24px;
+      font-size:15px;
+    }
+
+    .content ul,
+    .content ol {
+      padding-left:23px;
+      margin:0 0 30px;
+    }
+
+    .content li {
+      margin-bottom:12px;
+      font-size:15px;
+    }
+
+    .content a {
+      color:#985f4e;
+      text-underline-offset:4px;
+    }
+
+    .content a:hover {
+      color:var(--brown);
+    }
+
+    .lead {
+      font-family:Georgia,serif;
+      font-size:clamp(19px,2.3vw,24px)!important;
+      line-height:1.65;
+    }
 
     .highlight {
+      margin:42px 0;
+      padding:34px;
       background:var(--lavender-light);
-      padding:30px;
-      margin:38px 0;
       font-family:Georgia,serif;
-      font-size:23px;
+      font-size:clamp(21px,3vw,27px);
       line-height:1.5;
     }
-    .example {
+
+    .highlight strong {
+      color:#70548d;
+    }
+
+    .note {
+      margin:34px 0;
+      padding:26px 28px;
       background:var(--white);
       border-left:3px solid var(--terracotta);
-      padding:26px;
-      margin:30px 0;
     }
-    .example p:last-child {margin-bottom:0}
 
-    .steps {
-      counter-reset:workflow;
-      list-style:none;
-      padding:0!important;
+    .note h3 {
+      margin:0 0 13px;
     }
-    .steps li {
-      counter-increment:workflow;
-      padding:18px 0 18px 54px;
+
+    .note p:last-child {
+      margin-bottom:0;
+    }
+
+    /* FEATURE CARDS */
+
+    .feature-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin:35px 0 45px;
+    }
+
+    .feature {
+      min-width:0;
+      padding:27px 24px;
+      background:var(--white);
+      border:1px solid var(--line);
+      transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .feature:hover {
+      transform:translateY(-4px);
+      border-color:var(--terracotta);
+      box-shadow:0 12px 30px rgba(45,33,29,.06);
+    }
+
+    .feature-number {
+      display:block;
+      margin-bottom:20px;
+      color:var(--terracotta);
+      font-family:Georgia,serif;
+      font-size:25px;
+    }
+
+    .feature h3 {
+      margin:0 0 10px;
+      font-size:23px;
+    }
+
+    .feature p {
+      margin:0;
+      font-size:13px;
+      line-height:1.75;
+    }
+
+    /* LIORA SECTION */
+
+    .liora-panel {
+      margin:55px 0;
+      padding:42px;
+      background:var(--brown);
+      color:var(--cream);
       position:relative;
+      overflow:hidden;
+    }
+
+    .liora-panel::before {
+      content:"✦";
+      position:absolute;
+      top:-50px;
+      right:5px;
+      color:rgba(200,185,232,.13);
+      font-size:230px;
+      line-height:1;
+      pointer-events:none;
+    }
+
+    .liora-panel .eyebrow {
+      color:var(--lavender);
+    }
+
+    .liora-panel h3 {
+      position:relative;
+      margin:15px 0 23px;
+      font-size:clamp(30px,4vw,44px);
+      line-height:1.2;
+    }
+
+    .liora-panel p {
+      position:relative;
+      color:#eee5dd;
+    }
+
+    .liora-panel strong {
+      color:var(--lavender);
+    }
+
+    .liora-panel a {
+      color:var(--lavender);
+    }
+
+    /* WORKFLOW */
+
+    .workflow {
+      margin:42px 0;
+      padding:0;
+      list-style:none;
+      counter-reset:workflow;
+    }
+
+    .workflow li {
+      position:relative;
+      counter-increment:workflow;
+      padding:20px 0 20px 60px;
       border-bottom:1px solid var(--line);
     }
-    .steps li:before {
+
+    .workflow li::before {
       content:counter(workflow,decimal-leading-zero);
       position:absolute;
       left:0;
-      top:18px;
+      top:19px;
       color:var(--terracotta);
       font-family:Georgia,serif;
-      font-size:24px;
+      font-size:28px;
     }
 
-    .button {
-      display:inline-block;
-      padding:14px 22px;
-      background:var(--brown);
-      color:var(--white)!important;
-      text-decoration:none;
-      font-size:12px;
-      font-weight:bold;
-      letter-spacing:.5px;
+    .workflow li strong {
+      display:block;
+      margin-bottom:4px;
     }
-    .button:hover {background:#584035}
-    .small-note {font-size:12px!important;color:#73645c}
 
-    .faq {border-top:1px solid var(--line)}
-    .faq-item {padding:12px 0;border-bottom:1px solid var(--line)}
-    .faq-item h3 {font-size:22px;margin:12px 0!important}
+    /* FAQ */
+
+    .faq {
+      margin:35px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .faq details {
+      border-bottom:1px solid var(--line);
+      padding:20px 0;
+    }
+
+    .faq summary {
+      cursor:pointer;
+      font-family:Georgia,serif;
+      font-size:21px;
+      line-height:1.35;
+      padding-right:30px;
+    }
+
+    .faq details p {
+      padding-top:17px;
+      margin-bottom:0;
+    }
+
+    /* SOURCES */
+
+    .sources {
+      padding:30px;
+      background:var(--white);
+      border:1px solid var(--line);
+    }
+
+    .sources li {
+      overflow-wrap:anywhere;
+    }
+
+    .fineprint {
+      font-size:12px!important;
+      color:var(--muted);
+    }
+
+    /* RELATED */
 
     .related {
+      padding:90px 0;
       background:var(--brown);
       color:var(--cream);
-      padding:75px 0;
     }
+
     .related h2 {
-      font-size:clamp(35px,5vw,55px);
-      margin:12px 0 30px;
+      margin:15px 0 35px;
+      font-size:clamp(38px,5vw,60px);
+      line-height:1.2;
     }
-    .related-links {
+
+    .related-grid {
       display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:15px;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
     }
-    .related-links a {
-      padding:23px;
-      background:#43332d;
+
+    .related-grid a {
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:155px;
+      padding:25px;
+      background:var(--brown-soft);
       text-decoration:none;
       font-family:Georgia,serif;
-      font-size:19px;
+      font-size:22px;
+      line-height:1.35;
+      transition:background .25s ease,transform .25s ease;
     }
-    .related-links a:hover {background:#594239}
 
-    footer {padding:65px 0 30px}
+    .related-grid a:hover {
+      background:#594239;
+      transform:translateY(-3px);
+    }
+
+    .related-grid span {
+      display:block;
+      margin-top:20px;
+      color:var(--lavender);
+      font-family:Arial,sans-serif;
+      font-size:11px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding:70px 0 35px;
+    }
+
     .footer-logo {
       font-family:Georgia,serif;
-      font-size:clamp(48px,8vw,90px);
+      font-size:clamp(50px,8vw,90px);
+      line-height:1.2;
     }
-    .footer-logo em {color:var(--terracotta)}
+
+    .footer-logo em {
+      color:var(--terracotta);
+    }
+
     .footer-bottom {
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:20px;
+      margin-top:35px;
+      padding-top:22px;
+      border-top:1px solid var(--line);
+      font-size:11px;
+    }
+
+    .legal {
       display:flex;
       flex-wrap:wrap;
       gap:20px;
-      justify-content:space-between;
-      border-top:1px solid var(--line);
-      padding-top:20px;
+      margin-top:25px;
       font-size:11px;
     }
-    .legal {margin-top:25px;font-size:11px}
-    .legal a {margin-right:20px}
 
-    @media(max-width:800px) {
-      .nav {padding:20px 0;align-items:flex-start;flex-direction:column}
-      .nav-links {gap:16px}
-      .hero {padding:65px 0 40px}
+    /* SANFTE SCROLL-ANIMATIONEN */
+
+    .reveal {
+      opacity:1;
+      transform:none;
+    }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .js-motion .reveal {
+        opacity:0;
+        transform:translateY(26px);
+        transition:
+          opacity 900ms ease,
+          transform 900ms cubic-bezier(.2,.7,.2,1);
+      }
+
+      .js-motion .reveal.is-visible {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* SMARTPHONE */
+
+    @media(max-width:850px) {
+      .nav {
+        flex-direction:column;
+        align-items:flex-start;
+        padding:22px 0;
+      }
+
+      .nav-links {
+        gap:15px;
+      }
+
+      .hero {
+        padding:70px 0 75px;
+      }
+
+      .statement {
+        padding:65px 0;
+      }
+
+      .statement-grid {
+        grid-template-columns:1fr;
+        gap:20px;
+      }
+
       .article-layout {
         grid-template-columns:1fr;
-        gap:25px;
-        padding:25px 0 75px;
+        gap:30px;
+        padding:45px 0 85px;
       }
-      .sidebar {position:static}
-      .sidebar a {display:inline-block;margin-right:15px}
-      .content h2 {margin-top:48px}
-      .related-links {grid-template-columns:1fr}
+
+      .sidebar {
+        position:static;
+      }
+
+      .sidebar a {
+        display:inline-block;
+        margin-right:16px;
+      }
+
+      .content h2 {
+        margin-top:58px;
+      }
+    }
+
+    @media(max-width:550px) {
+      .container {
+        width:calc(100% - 32px);
+      }
+
+      h1 {
+        font-size:clamp(39px,10vw,55px);
+        letter-spacing:-1px;
+      }
+
+      .feature-grid,
+      .related-grid {
+        grid-template-columns:1fr;
+      }
+
+      .highlight {
+        padding:25px;
+      }
+
+      .liora-panel {
+        padding:30px 24px;
+      }
+
+      .hero-actions {
+        align-items:stretch;
+        flex-direction:column;
+      }
+
+      .btn {
+        width:100%;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {scroll-behavior:auto}
+      *,
+      *::before,
+      *::after {
+        animation-duration:.01ms!important;
+        transition-duration:.01ms!important;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
+<header class="site-header">
   <div class="container nav">
-    <a class="logo" href="/">CREATORBASE <span>✦</span></a>
-    <nav class="nav-links">
+
+    <a class="logo" href="/">
+      CREATORBASE <span>✦</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="/blog.html">Blog</a>
       <a href="/#start">Guides</a>
       <a href="/pinterest.html">Pinterest</a>
       <a href="/#liora">LiORA</a>
       <a href="/ueber-uns.html">Über uns</a>
     </nav>
+
   </div>
 </header>
 
 <main>
 
-<section class="hero">
-  <div class="container">
-    <div class="eyebrow">
-      CREATORBASE JOURNAL / 18 · KI & WORKFLOWS
-    </div>
+  <!-- HERO -->
 
-    <h1>
-      Weaver – die KI-Arbeitsplattform für
-      <em>Content, Automatisierung und digitale Workflows.</em>
-    </h1>
+  <section class="hero">
+    <div class="container">
 
-    <p class="intro">
-      KI-Chat, eigene Assistenten und Bildgenerierung
-      auf einer Plattform: Was Weaver von S The Empire
-      bietet, welche kreativen Arbeitsabläufe damit
-      möglich sind und wie LiORA dabei eingesetzt wird.
-    </p>
+      <div class="eyebrow">
+        CREATORBASE JOURNAL / 18 · KI & WORKFLOWS
+      </div>
 
-    <p class="hero-meta">
-      Creatorbase · Informationsstand: 28. Oktober 2026
-    </p>
-  </div>
-</section>
+      <h1>
+        Weaver – die KI-Arbeitsplattform
+        für <em>Content, Automatisierung
+        und digitale Workflows.</em>
+      </h1>
 
-<div class="container article-layout">
-
-  <aside class="sidebar">
-    <strong>In diesem Guide</strong>
-    <a href="#was-ist-weaver">01 · Was ist Weaver?</a>
-    <a href="#funktionen">02 · Funktionen</a>
-    <a href="#workflows">03 · Digitale Workflows</a>
-    <a href="#liora">04 · LiORA als Beispiel</a>
-    <a href="#bildgenerierung">05 · Bilder generieren</a>
-    <a href="#alternative">06 · Eigene Assistenten</a>
-    <a href="#zielgruppe">07 · Für wen?</a>
-    <a href="#faq">08 · Fragen & Antworten</a>
-    <a href="#quellen">09 · Quellen</a>
-  </aside>
-
-  <article class="content">
-
-    <p>
-      Wer mit künstlicher Intelligenz arbeitet,
-      kennt häufig zuerst ChatGPT. Doch auch andere
-      Plattformen bieten Möglichkeiten, um Inhalte
-      zu entwickeln, Bilder zu erstellen und eigene
-      KI-Assistenten einzurichten.
-    </p>
-
-    <p>
-      Eine davon ist <strong>Weaver von S The Empire</strong>.
-      Die Plattform verbindet verschiedene KI-Funktionen
-      in einer browserbasierten Arbeitsumgebung.
-      Für Content Creator, Selbstständige und kleine
-      Unternehmen kann das interessant sein:
-      Ideen, Texte und visuelle Konzepte lassen sich
-      innerhalb eines zusammenhängenden Prozesses bearbeiten.
-    </p>
-
-    <div class="highlight">
-      Eine KI-Plattform ist nicht automatisch ein fertiger
-      Arbeitsablauf. Entscheidend ist, wie du ihre
-      Funktionen für deine Aufgaben einsetzt.
-    </div>
-
-    <h2 id="was-ist-weaver">1. Was ist Weaver?</h2>
-
-    <p>
-      Weaver, auch AI Business Weaver genannt,
-      ist eine KI-Plattform von S The Empire.
-      Sie ist über den Browser erreichbar.
-      Laut Anbieter unterstützt sie unter anderem
-      KI-Chat, Texterstellung, Recherche,
-      Bildgenerierung, Dokumenterstellung
-      und eigene spezialisierte KI-Assistenten.
-    </p>
-
-    <p>
-      Die offizielle Preisübersicht nennt zudem
-      eine persönliche Wissensdatenbank und
-      Kontingente für eigene Assistenten,
-      die dort als „Custom GPTs“ bezeichnet werden.
-    </p>
-
-    <p>
-      Damit ist Weaver nicht nur ein Chatfenster.
-      Die Plattform soll verschiedene Arbeitsschritte
-      rund um KI-gestützte Inhalte miteinander verbinden.
-      Welche Funktionen du konkret nutzen kannst,
-      hängt vom gewählten Tarif und den aktuellen
-      Angeboten des Anbieters ab.
-    </p>
-
-    <a
-      class="button"
-      href="https://weaver.s-theempire.at/"
-      target="_blank"
-      rel="noopener noreferrer">
-      Offizielle Weaver-Website ansehen ↗
-    </a>
-
-    <h2 id="funktionen">2. Welche Funktionen bietet Weaver?</h2>
-
-    <h3>KI-Chat und Texterstellung</h3>
-
-    <p>
-      Du kannst Aufgaben in einem Gespräch beschreiben
-      und KI-Unterstützung für Texte, Ideen,
-      Recherche oder die Strukturierung von Inhalten nutzen.
-      Das kann beispielsweise bei Blogartikeln,
-      Social-Media-Konzepten und der Vorbereitung
-      von Marketingmaterial helfen.
-    </p>
-
-    <h3>Eigene KI-Assistenten</h3>
-
-    <p>
-      Statt für jede Aufgabe bei null anzufangen,
-      können spezialisierte Assistenten mit eigenen
-      Anweisungen und passenden Wissensquellen
-      eingerichtet werden.
-    </p>
-
-    <p>
-      Ein solcher Assistent könnte beispielsweise
-      für Content-Planung, Textüberarbeitung
-      oder die Entwicklung visueller Konzepte
-      eingesetzt werden.
-      Wie zuverlässig er arbeitet,
-      muss anhand konkreter Aufgaben geprüft werden.
-    </p>
-
-    <h3>Bildgenerierung</h3>
-
-    <p>
-      Weaver bietet laut Anbieter auch KI-Bildgenerierung.
-      In einem eigenen Produktbeitrag beschreibt
-      S The Empire die Integration von
-      Nano Banana 2 und Nano Banana Pro.
-      Die tatsächlich verfügbaren Modelle,
-      Funktionen und Bildkontingente können sich ändern.
-    </p>
-
-    <h3>Dokumente und Wissensquellen</h3>
-
-    <p>
-      Der Anbieter nennt außerdem Dokumenterstellung
-      und eine persönliche Wissensdatenbank.
-      Für spezialisierte Assistenten kann es hilfreich sein,
-      wiederkehrende Informationen und Vorgaben
-      strukturiert bereitzustellen.
-    </p>
-
-    <h2 id="workflows">3. Was bedeutet das für digitale Workflows?</h2>
-
-    <p>
-      Ein Workflow ist einfach eine festgelegte
-      Reihenfolge von Arbeitsschritten.
-      Bei der Content-Erstellung könnte das
-      beispielsweise so aussehen:
-    </p>
-
-    <ol class="steps">
-      <li><strong>Idee festlegen:</strong> Welches Thema soll behandelt werden?</li>
-      <li><strong>Inhalt entwickeln:</strong> Welche Aussage und Struktur braucht der Beitrag?</li>
-      <li><strong>Visuals planen:</strong> Welche Bilder unterstützen den Inhalt?</li>
-      <li><strong>Bildprompts formulieren:</strong> Wie soll das Bildmodell die Idee umsetzen?</li>
-      <li><strong>Ergebnisse prüfen:</strong> Stimmen Text, Darstellung und Bilddetails?</li>
-    </ol>
-
-    <p>
-      Solche Abläufe lassen sich mit KI-Unterstützung
-      strukturieren und teilweise beschleunigen.
-      Das bedeutet allerdings nicht,
-      dass jeder Schritt automatisch und
-      ohne menschliche Kontrolle abläuft.
-    </p>
-
-    <div class="example">
-      <h3>Automatisierung ist nicht gleich KI-Chat.</h3>
-      <p>
-        Ein wiederholbarer Ablauf kann bereits Zeit sparen.
-        Eine echte technische Automatisierung,
-        die Aufgaben selbstständig ausführt
-        oder andere Dienste verbindet,
-        benötigt zusätzliche passende Funktionen.
-        Ob und wie Weaver solche Abläufe unterstützt,
-        sollte für den konkreten Anwendungsfall
-        geprüft werden.
+      <p class="hero-intro">
+        KI-Chat, eigene Assistenten und kreative
+        Produktion in einer Arbeitsumgebung.
+        Entdecke, was Weaver von S The Empire
+        bietet – und warum LiORA als strategischer
+        Content-Assistent besonders gut dazu passt.
       </p>
-    </div>
 
-    <h2 id="liora">4. Praxisbeispiel: LiORA auf Weaver</h2>
-
-    <p>
-      LiORA ist mein kreativer KI-Assistent
-      für Content, visuelle Richtung und Bildprompts.
-      Ich entwickle LiORA als eigenen Assistenten
-      auf Weaver weiter.
-    </p>
-
-    <p>
-      Die Idee dahinter:
-      Ein guter visueller Beitrag beginnt nicht
-      mit einem zufällig generierten Bild.
-      Zuerst sollte klar sein, was der Inhalt
-      vermitteln soll und welche Aufgabe
-      jedes einzelne Visual übernimmt.
-    </p>
-
-    <h3>So arbeitet LiORA</h3>
-
-    <ol class="steps">
-      <li><strong>Anliegen beschreiben:</strong> Thema, Idee oder gewünschtes Ergebnis nennen.</li>
-      <li><strong>Inhalt entwickeln:</strong> Aussage, Aufbau und visuelle Richtung klären.</li>
-      <li><strong>Visuals ausarbeiten:</strong> Für jedes Bild oder jede Slide eine Aufgabe definieren.</li>
-      <li><strong>Bildprompt erstellen:</strong> Die Idee in eine konkrete Anweisung für ein Bildmodell übersetzen.</li>
-      <li><strong>Bild prüfen:</strong> Das Ergebnis auf Inhalt, Darstellung und Konsistenz kontrollieren.</li>
-    </ol>
-
-    <p>
-      Weaver stellt die Plattform und ihre
-      verfügbaren KI-Werkzeuge bereit.
-      LiORA ergänzt die individuelle kreative
-      Arbeitsweise und die dafür eingerichteten Regeln.
-    </p>
-
-    <div class="highlight">
-      Weaver ist die Plattform.
-      LiORA ist das konkrete kreative Praxisbeispiel.
-    </div>
-
-    <p>
-      Die Bildproduktion kann je nach verfügbarer
-      Funktion direkt innerhalb von Weaver
-      oder mit einem externen Werkzeug wie
-      Google Flow erfolgen.
-      Nicht jeder Assistent auf Weaver
-      besitzt automatisch dieselben Fähigkeiten.
-    </p>
-
-    <p>
-      Mehr über LiORA erfährst du auch im
-      <a href="/#liora">LiORA-Bereich auf Creatorbase</a>.
-    </p>
-
-    <h2 id="bildgenerierung">5. Kann Weaver Bilder generieren?</h2>
-
-    <p>
-      Ja, Bildgenerierung gehört zu den
-      vom Anbieter beschriebenen Funktionen.
-      S The Empire nennt dafür unter anderem
-      Nano Banana 2 und Nano Banana Pro.
-    </p>
-
-    <p>
-      Für kreative Projekte ist dabei wichtig,
-      dass die Bildidee und das Ergebnis
-      zusammenpassen. Besonders bei Bildserien,
-      Karussells und wiederkehrenden Figuren
-      müssen Details kontrolliert werden.
-    </p>
-
-    <p>
-      Einheitliche Charaktere, korrekt dargestellte
-      Schrift oder identische Details über mehrere
-      Bilder hinweg sind nicht automatisch garantiert.
-    </p>
-
-    <h2 id="alternative">6. Ist Weaver eine Alternative zu eigenen GPTs?</h2>
-
-    <p>
-      Wer eigene KI-Assistenten einrichten möchte,
-      kann Weaver als mögliche Alternative prüfen.
-      Die Plattform beschreibt eigene Assistenten,
-      Wissensquellen und entsprechende Kontingente.
-    </p>
-
-    <p>
-      Ein bestehender GPT aus ChatGPT lässt sich
-      aber nicht einfach als vollständig übertragbar
-      voraussetzen. Anweisungen, Wissensdateien,
-      Berechtigungen und benötigte Werkzeuge
-      müssen passend eingerichtet und getestet werden.
-    </p>
-
-    <p>
-      Auch bestehende Chatverläufe, Kundenzugänge
-      und das Verhalten der Bildgenerierung
-      sollten nicht als automatisch übertragbar
-      angesehen werden.
-    </p>
-
-    <h2 id="zielgruppe">7. Für wen könnte Weaver interessant sein?</h2>
-
-    <ul>
-      <li><strong>Content Creator:</strong> Für Ideen, Texte, Bildkonzepte und visuelle Serien.</li>
-      <li><strong>Selbstständige:</strong> Für wiederkehrende Aufgaben und strukturierte Content-Prozesse.</li>
-      <li><strong>Kleine Unternehmen:</strong> Für die Entwicklung von Marketingmaterial und internen Arbeitsabläufen.</li>
-      <li><strong>Menschen mit eigenen KI-Assistenten:</strong> Um spezialisierte Anweisungen und Wissensquellen einzusetzen.</li>
-    </ul>
-
-    <p>
-      Vor einer Entscheidung lohnt es sich,
-      die benötigten Funktionen,
-      den Zugang zu eigenen Assistenten,
-      die Bildkontingente und die geltenden
-      Datenschutz- und Vertragsbedingungen
-      zu prüfen.
-    </p>
-
-    <h2 id="faq">8. Häufige Fragen zu Weaver</h2>
-
-    <div class="faq">
-
-      <div class="faq-item">
-        <h3>Ist Weaver dasselbe wie LiORA?</h3>
-        <p>
-          Nein. Weaver ist die KI-Plattform
-          von S The Empire. LiORA ist ein
-          darauf eingerichteter kreativer
-          Assistent mit eigener Arbeitsweise.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Kann ich mit Weaver eigene KI-Assistenten erstellen?</h3>
-        <p>
-          Laut Anbieter ja. Die Preisübersicht
-          führt eigene Assistenten und eine
-          persönliche Wissensdatenbank auf.
-          Die konkreten Möglichkeiten hängen
-          vom gewählten Angebot ab.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Kann LiORA Nano-Banana-Prompts erstellen?</h3>
-        <p>
-          Ja. Das Erstellen von Bildprompts
-          gehört zum beschriebenen LiORA-Workflow.
-          Die Bildgenerierung erfolgt anschließend
-          über ein verfügbares Bildmodell.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Muss ich für Bilder immer ein anderes Tool öffnen?</h3>
-        <p>
-          Nicht zwingend. Bildgenerierung ist
-          auch innerhalb von Weaver vorgesehen.
-          Ob sie im jeweiligen Assistenten
-          und Konto verfügbar ist,
-          muss geprüft werden.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Bekomme ich mit einem Weaver-Abo automatisch LiORA?</h3>
-        <p>
-          Nicht unbedingt. Ein Weaver-Konto
-          und der Zugang zu einem bestimmten
-          LiORA-Assistenten sind unterschiedliche Dinge.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Was kostet Weaver?</h3>
-        <p>
-          Aktuelle Preise, Funktionen und
-          Bildkontingente stehen auf der
-          <a href="https://weaver.s-theempire.at/preise"
-             target="_blank"
-             rel="noopener noreferrer">
-            offiziellen Weaver-Preisseite
-          </a>.
-          Diese Angaben können sich ändern.
-        </p>
-      </div>
-
-    </div>
-
-    <h2>Fazit: Mehr als nur ein KI-Chat</h2>
-
-    <p>
-      Weaver verbindet laut Anbieter
-      verschiedene KI-Funktionen in einer
-      gemeinsamen Arbeitsplattform.
-      Für Menschen, die regelmäßig Content
-      erstellen, Bilder entwickeln oder
-      eigene Assistenten einsetzen möchten,
-      kann das einen genaueren Blick wert sein.
-    </p>
-
-    <p>
-      Das Praxisbeispiel LiORA zeigt,
-      wie ein individueller kreativer Ablauf
-      auf einer solchen Plattform aufgebaut
-      werden kann – von der ersten Idee
-      bis zur Prüfung eines fertigen Visuals.
-    </p>
-
-    <div class="highlight">
-      Nicht die Anzahl der KI-Werkzeuge
-      macht einen guten Workflow aus,
-      sondern die Klarheit der Aufgabe
-      und die Qualität des Ergebnisses.
-    </div>
-
-    <h2 id="quellen">9. Offizielle Quellen</h2>
-
-    <p>
-      Die Angaben zu den Weaver-Funktionen
-      basieren auf den folgenden
-      Veröffentlichungen des Anbieters:
-    </p>
-
-    <ul>
-      <li>
-        <a href="https://weaver.s-theempire.at/blog/weaver-eine-ehrliche-ki-gebaut-fuer-europa"
-           target="_blank" rel="noopener noreferrer">
-          Weaver: Eine ehrliche KI – gebaut für Europa
+      <div class="hero-actions">
+        <a class="btn" href="#was-ist-weaver">
+          Guide entdecken ↘
         </a>
-        – Anbieterbeschreibung vom 16. Mai 2026.
-      </li>
-      <li>
-        <a href="https://weaver.s-theempire.at/preise"
-           target="_blank" rel="noopener noreferrer">
-          Offizielle Weaver-Preisübersicht
+
+        <a
+          class="btn btn-outline"
+          href="https://weaver.s-theempire.at/"
+          target="_blank"
+          rel="noopener noreferrer">
+          Weaver kennenlernen ↗
         </a>
-        – Funktionen, Tarife und Kontingente.
-      </li>
-      <li>
-        <a href="https://weaver.s-theempire.at/blog/nano-banana-2-pro-jetzt-in-auralis-weaver"
-           target="_blank" rel="noopener noreferrer">
-          Nano Banana 2 & Pro – jetzt in Auralis & Weaver
-        </a>
-        – Anbieterbeitrag vom 12. Mai 2026.
-      </li>
-    </ul>
+      </div>
 
-    <p class="small-note">
-      Informationsstand: 28. Oktober 2026.
-      Dieser Beitrag ist eine redaktionelle
-      Vorstellung auf Creatorbase und keine
-      offizielle Produktdokumentation von
-      S The Empire. Die Plattformfunktionen
-      beruhen auf Anbieterangaben.
-      Der LiORA-Workflow beschreibt
-      eine individuelle Einrichtung.
-    </p>
+      <p class="hero-meta">
+        CREATORBASE · INFORMATIONSSTAND 28.10.2026
+      </p>
 
-  </article>
-</div>
-
-<section class="related">
-  <div class="container">
-    <div class="eyebrow">CREATORBASE · WEITERLESEN</div>
-    <h2>Mehr über KI und Content.</h2>
-
-    <div class="related-links">
-      <a href="/artikel/ki-fuer-content-nutzen.html">
-        KI für Content nutzen ↗
-      </a>
-      <a href="/artikel/ki-bilder-fuer-social-media.html">
-        KI-Bilder für Social Media ↗
-      </a>
-      <a href="/artikel/ki-fotografie-fuer-content.html">
-        KI-Fotografie für Content ↗
-      </a>
-      <a href="/blog.html">
-        Alle Creatorbase-Artikel ↗
-      </a>
     </div>
+  </section>
+
+  <!-- EDITORIAL STATEMENT -->
+
+  <section class="statement">
+    <div class="container statement-grid">
+
+      <div class="eyebrow reveal">
+        DIE IDEE DAHINTER
+      </div>
+
+      <div class="reveal">
+        <h2>
+          Eine Plattform bietet Möglichkeiten.
+          <em>Ein guter Workflow macht etwas daraus.</em>
+        </h2>
+
+        <p>
+          Weaver verbindet unterschiedliche
+          KI-Funktionen. Mit einer klaren
+          Strategie und spezialisierten
+          Assistenten können daraus
+          zusammenhängende kreative
+          Arbeitsprozesse entstehen.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ARTIKEL -->
+
+  <div class="container article-layout">
+
+    <aside class="sidebar">
+      <strong>In diesem Guide</strong>
+
+      <a href="#was-ist-weaver">01 · Weaver verstehen</a>
+      <a href="#funktionen">02 · Funktionen</a>
+      <a href="#automatisierung">03 · Workflows</a>
+      <a href="#liora">04 · LiORA & Weaver</a>
+      <a href="#praxis">05 · Praxisbeispiel</a>
+      <a href="#bilder-video">06 · Bilder & Videos</a>
+      <a href="#assistenten">07 · Eigene Assistenten</a>
+      <a href="#zielgruppe">08 · Für wen?</a>
+      <a href="#faq">09 · Häufige Fragen</a>
+      <a href="#quellen">10 · Quellen</a>
+    </aside>
+
+    <article class="content">
+
+      <div class="reveal">
+
+        <p class="lead">
+          Künstliche Intelligenz wird oft
+          auf einzelne Aufgaben reduziert:
+          einen Text schreiben, ein Bild
+          generieren oder eine Frage beantworten.
+          Doch interessant wird KI besonders
+          dann, wenn mehrere Arbeitsschritte
+          sinnvoll miteinander verbunden werden.
+        </p>
+
+        <p>
+          Genau hier setzt die Idee einer
+          KI-Arbeitsplattform an. Statt nur
+          einen Chat zu verwenden, können
+          unterschiedliche Funktionen
+          für Content, Recherche und
+          kreative Produktion zusammenspielen.
+        </p>
+
+        <p>
+          Eine Plattform, die diesen Ansatz
+          verfolgt, ist <strong>Weaver
+          von S The Empire</strong>.
+        </p>
+
+      </div>
+
+      <!-- 01 -->
+
+      <section id="was-ist-weaver" class="reveal">
+
+        <h2>1. Was ist Weaver?</h2>
+
+        <p>
+          Weaver, auch AI Business Weaver genannt,
+          ist eine browserbasierte KI-Plattform
+          von S The Empire.
+        </p>
+
+        <p>
+          Laut Anbieter bietet Weaver unter anderem
+          KI-Chat, Texterstellung, Recherche,
+          Dokumenterstellung, Bildgenerierung
+          und die Möglichkeit, eigene
+          spezialisierte KI-Assistenten einzurichten.
+        </p>
+
+        <p>
+          Die offizielle Preisübersicht führt
+          außerdem eine persönliche Wissensdatenbank
+          und Kontingente für eigene Assistenten auf.
+        </p>
+
+        <div class="highlight">
+          Weaver ist nicht nur für einzelne
+          KI-Antworten gedacht, sondern als
+          <strong>Arbeitsumgebung für
+          unterschiedliche KI-Aufgaben.</strong>
+        </div>
+
+        <p>
+          Das kann besonders für Menschen
+          interessant sein, die regelmäßig
+          Content entwickeln und dabei
+          verschiedene kreative und
+          organisatorische Schritte verbinden.
+        </p>
+
+        <p>
+          Die tatsächlichen Funktionen
+          hängen vom jeweiligen Tarif,
+          Konto und den aktuell verfügbaren
+          KI-Modellen ab.
+        </p>
+
+      </section>
+
+      <!-- 02 -->
+
+      <section id="funktionen" class="reveal">
+
+        <h2>2. Was kann Weaver?</h2>
+
+        <p>
+          Die Plattform vereint laut
+          Anbieter mehrere Bereiche,
+          die bei der digitalen Arbeit
+          eine Rolle spielen.
+        </p>
+
+        <div class="feature-grid">
+
+          <div class="feature">
+            <span class="feature-number">01</span>
+            <h3>KI-Chat</h3>
+            <p>
+              Ideen entwickeln, Fragen klären,
+              Texte bearbeiten und Inhalte
+              strukturieren.
+            </p>
+          </div>
+
+          <div class="feature">
+            <span class="feature-number">02</span>
+            <h3>Content</h3>
+            <p>
+              Unterstützung bei Beiträgen,
+              Konzepten, Recherche und
+              Dokumenten.
+            </p>
+          </div>
+
+          <div class="feature">
+            <span class="feature-number">03</span>
+            <h3>Eigene Assistenten</h3>
+            <p>
+              Spezialisierte KI-Assistenten
+              mit eigenen Anweisungen und
+              Wissensquellen einrichten.
+            </p>
+          </div>
+
+          <div class="feature">
+            <span class="feature-number">04</span>
+            <h3>Bildgenerierung</h3>
+            <p>
+              Visuelle Ideen mithilfe
+              verfügbarer KI-Bildmodelle
+              umsetzen.
+            </p>
+          </div>
+
+        </div>
+
+        <p>
+          Besonders interessant ist die
+          Verbindung dieser Möglichkeiten.
+          Eine Idee muss nicht bei einem
+          einzelnen Text oder Bild enden.
+          Sie kann zum Ausgangspunkt
+          eines umfassenderen Projekts werden.
+        </p>
+
+      </section>
+
+      <!-- 03 -->
+
+      <section id="automatisierung" class="reveal">
+
+        <h2>3. Content, Automatisierung und digitale Workflows</h2>
+
+        <p>
+          Ein Workflow ist eine feste
+          Abfolge von Arbeitsschritten.
+          Beispielsweise:
+          Erst wird eine Content-Idee
+          entwickelt, dann ein Beitrag
+          geschrieben und anschließend
+          die visuelle Umsetzung geplant.
+        </p>
+
+        <p>
+          KI kann dabei helfen,
+          diese Schritte zu strukturieren,
+          Informationen aufzubereiten
+          und wiederkehrende Aufgaben
+          effizienter zu bearbeiten.
+        </p>
+
+        <div class="note">
+
+          <h3>Was bedeutet Automatisierung?</h3>
+
+          <p>
+            Ein gut strukturierter Workflow
+            ist nicht automatisch eine
+            vollständig selbstständig
+            arbeitende Automatisierung.
+          </p>
+
+          <p>
+            Wenn beispielsweise externe
+            Programme verbunden oder
+            Aufgaben ohne manuelle
+            Eingriffe ausgeführt werden
+            sollen, sind dafür geeignete
+            technische Funktionen nötig.
+            Ob Weaver diese im konkreten
+            Fall bereitstellt, muss
+            separat geprüft werden.
+          </p>
+
+        </div>
+
+        <p>
+          Für Content Creator liegt
+          ein großer praktischer Nutzen
+          bereits darin, nicht bei
+          jedem neuen Projekt wieder
+          bei null anfangen zu müssen.
+        </p>
+
+      </section>
+
+      <!-- 04 -->
+
+      <section id="liora" class="reveal">
+
+        <h2>4. Warum LiORA und Weaver so gut zusammenpassen</h2>
+
+        <p>
+          Um zu verstehen, wie eine
+          vielseitige KI-Plattform
+          eingesetzt werden kann,
+          lohnt sich ein Blick auf
+          einen konkreten Anwendungsfall:
+          <strong>LiORA</strong>.
+        </p>
+
+        <p>
+          LiORA ist mein spezialisierter
+          KI-Assistent für Strategie,
+          Content-Erstellung und
+          kreative Produktion.
+        </p>
+
+        <p>
+          Sie unterstützt nicht nur
+          bei Bildern, sondern verbindet
+          strategisches Denken mit
+          Texten, Content-Konzepten,
+          visuellen Ideen sowie
+          Bild- und Videoprompts.
+        </p>
+
+        <div class="liora-panel">
+
+          <div class="eyebrow">
+            WEAVER × LiORA
+          </div>
+
+          <h3>
+            Die Plattform bringt die
+            KI-Leistung. LiORA bringt
+            ihre eigene kreative Sprache.
+          </h3>
+
+          <p>
+            LiORA arbeitet mit einer
+            eigenen kreativen Ausrichtung,
+            spezialisierten Anweisungen
+            und einer hinterlegten
+            Wissensbasis.
+          </p>
+
+          <p>
+            Dadurch verfolgt sie eine
+            bestimmte Arbeitsweise:
+            Zuerst werden Ziel, Aussage
+            und Strategie geklärt.
+            Danach entstehen passende
+            Inhalte und konkrete
+            Produktionskonzepte.
+          </p>
+
+          <p>
+            <strong>
+              Weaver stellt die verfügbaren
+              KI-Modelle und Werkzeuge bereit.
+              LiORA bringt ihre eigene
+              Methodik, Sprache und
+              kreative Identität ein.
+            </strong>
+          </p>
+
+          <p>
+            So ergänzen sich technische
+            Möglichkeiten und
+            spezialisierte kreative Arbeit.
+          </p>
+
+        </div>
+
+        <h3>Was LiORA konkret unterstützt</h3>
+
+        <div class="feature-grid">
+
+          <div class="feature">
+            <span class="feature-number">01</span>
+            <h3>Strategie</h3>
+            <p>
+              Zielgruppen, Botschaften,
+              Content-Ziele und
+              thematische Ausrichtung.
+            </p>
+          </div>
+
+          <div class="feature">
+            <span class="feature-number">02</span>
+            <h3>Content-Erstellung</h3>
+            <p>
+              Beiträge, Hooks, Karussells,
+              Texte und zusammenhängende
+              Content-Serien.
+            </p>
+          </div>
+
+          <div class="feature">
+            <span class="feature-number">03</span>
+            <h3>Bildsprache</h3>
+            <p>
+              Visuelle Konzepte,
+              Bildkompositionen,
+              Bildwelten und
+              präzise Bildprompts.
+            </p>
+          </div>
+
+          <div class="feature">
+            <span class="feature-number">04</span>
+            <h3>Videoprompts</h3>
+            <p>
+              Szenenideen, Bewegungen,
+              Bildsprache und
+              Produktionsanweisungen
+              für KI-Videos.
+            </p>
+          </div>
+
+        </div>
+
+        <p>
+          LiORA betrachtet diese
+          Aufgaben nicht isoliert.
+          Strategie, Text, Bildwelt
+          und Video sollen dieselbe
+          Botschaft unterstützen.
+        </p>
+
+        <p>
+          Genau deshalb ist eine
+          Plattform wie Weaver für
+          diesen Ansatz interessant:
+          Verschiedene KI-Funktionen
+          können innerhalb einer
+          Arbeitsumgebung genutzt
+          und aufeinander abgestimmt werden.
+        </p>
+
+        <p>
+          <a href="/#liora">
+            Mehr über LiORA auf Creatorbase erfahren →
+          </a>
+        </p>
+
+      </section>
+
+      <!-- 05 -->
+
+      <section id="praxis" class="reveal">
+
+        <h2>5. Praxisbeispiel: Von der Idee zur Content-Kampagne</h2>
+
+        <p>
+          Stell dir vor, eine kleine
+          Modemarke möchte eine neue
+          Kollektion vorstellen.
+          Statt direkt ein einzelnes
+          Werbebild zu erstellen,
+          beginnt der Prozess
+          mit der Strategie.
+        </p>
+
+        <ol class="workflow">
+
+          <li>
+            <strong>Strategie entwickeln</strong>
+            LiORA unterstützt dabei,
+            Zielgruppe, Markenbotschaft
+            und gewünschte Wirkung
+            der Kampagne zu klären.
+          </li>
+
+          <li>
+            <strong>Content planen</strong>
+            Daraus entstehen Themen,
+            Hooks, Beiträge und
+            Karussell-Konzepte.
+          </li>
+
+          <li>
+            <strong>Visuelle Richtung definieren</strong>
+            Farben, Stimmung,
+            Bildkomposition und
+            kreative Handschrift
+            werden aufeinander abgestimmt.
+          </li>
+
+          <li>
+            <strong>Bildprompts entwickeln</strong>
+            LiORA formuliert präzise
+            Anweisungen für passende
+            KI-Bilder und Bildserien.
+          </li>
+
+          <li>
+            <strong>Videoprompts erstellen</strong>
+            Die Bildwelt wird um
+            Szenen, Bewegungen und
+            visuelle Abläufe ergänzt.
+          </li>
+
+          <li>
+            <strong>Ergebnisse produzieren und prüfen</strong>
+            Die verfügbaren KI-Werkzeuge
+            unterstützen bei der Umsetzung.
+            Anschließend werden Inhalte
+            und Visuals kontrolliert.
+          </li>
+
+        </ol>
+
+        <div class="highlight">
+          Aus einer einzelnen Idee
+          kann eine <strong>zusammenhängende
+          Content-Welt</strong> entstehen –
+          mit einer gemeinsamen
+          strategischen und
+          visuellen Richtung.
+        </div>
+
+        <p>
+          Dieses Beispiel beschreibt
+          einen möglichen kreativen
+          Ablauf. Es ist kein
+          Nachweis dafür, dass
+          sämtliche Schritte
+          vollautomatisch ausgeführt werden.
+        </p>
+
+      </section>
+
+      <!-- 06 -->
+
+      <section id="bilder-video" class="reveal">
+
+        <h2>6. Bildgenerierung und Videoprompts: Was gehört wohin?</h2>
+
+        <p>
+          Weaver bietet laut
+          Anbieter KI-Bildgenerierung.
+          In einer Produktveröffentlichung
+          beschreibt S The Empire
+          unter anderem die Integration
+          von Nano Banana 2
+          und Nano Banana Pro.
+        </p>
+
+        <p>
+          Für LiORA ist das besonders
+          interessant, weil Bildideen
+          nicht unabhängig von
+          der Content-Strategie
+          entstehen sollen.
+        </p>
+
+        <p>
+          LiORA kann eine visuelle
+          Richtung ausarbeiten,
+          konkrete Bildprompts
+          formulieren und
+          Videoprompts entwickeln.
+        </p>
+
+        <p>
+          Ob Bilder oder Videos
+          direkt innerhalb von Weaver
+          erzeugt werden können,
+          hängt vom jeweiligen
+          Modell, Konto und
+          den verfügbaren Funktionen ab.
+          Alternativ können
+          Produktionsprompts in
+          passenden externen
+          Werkzeugen verwendet werden.
+        </p>
+
+        <div class="note">
+
+          <h3>Wichtig bei hochwertigen Ergebnissen</h3>
+
+          <p>
+            Auch leistungsfähige
+            Bildmodelle liefern nicht
+            automatisch perfekte
+            Ergebnisse. Schrift,
+            Referenztreue, wiederkehrende
+            Figuren und Details
+            sollten geprüft werden.
+          </p>
+
+          <p>
+            Gute Prompts und eine
+            klare kreative Richtung
+            können helfen, ersetzen
+            aber nicht die
+            Qualitätskontrolle.
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- 07 -->
+
+      <section id="assistenten" class="reveal">
+
+        <h2>7. Eigene KI-Assistenten: Mehr als ein Chatfenster</h2>
+
+        <p>
+          Ein eigener KI-Assistent
+          unterscheidet sich von
+          einem allgemeinen Chat
+          durch seine spezialisierte
+          Einrichtung.
+        </p>
+
+        <p>
+          Dazu können eigene
+          Anweisungen, Wissensquellen,
+          Arbeitsregeln und
+          bestimmte Ausgabeformate
+          gehören.
+        </p>
+
+        <p>
+          LiORA zeigt,
+          warum das interessant ist:
+          Sie soll nicht bei
+          jeder Anfrage eine
+          völlig neue kreative
+          Richtung erfinden,
+          sondern innerhalb
+          ihrer definierten
+          Arbeitsweise unterstützen.
+        </p>
+
+        <p>
+          Weaver bietet laut Anbieter
+          die Möglichkeit,
+          eigene spezialisierte
+          Assistenten einzurichten.
+          Welche Wissensdateien,
+          Freigaben und Funktionen
+          dabei unterstützt werden,
+          sollte im konkreten
+          Konto geprüft werden.
+        </p>
+
+        <p>
+          Auch ein bestehender
+          ChatGPT-GPT lässt sich
+          nicht automatisch
+          vollständig übertragen.
+          Seine Einrichtung
+          muss angepasst und
+          getestet werden.
+        </p>
+
+      </section>
+
+      <!-- 08 -->
+
+      <section id="zielgruppe" class="reveal">
+
+        <h2>8. Für wen ist Weaver interessant?</h2>
+
+        <p>
+          Weaver kann einen Blick
+          wert sein, wenn du
+          KI nicht nur für
+          gelegentliche Fragen,
+          sondern regelmäßig
+          für deine Arbeit
+          einsetzen möchtest.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Content Creator:</strong>
+            Für Content-Planung,
+            Texte, Ideen und
+            visuelle Konzepte.
+          </li>
+
+          <li>
+            <strong>Selbstständige:</strong>
+            Für wiederkehrende
+            Aufgaben und
+            strukturierte Abläufe.
+          </li>
+
+          <li>
+            <strong>Kleine Marken:</strong>
+            Für Marketingideen,
+            Kampagnen und
+            Content-Produktion.
+          </li>
+
+          <li>
+            <strong>Menschen mit eigenen Assistenten:</strong>
+            Für spezialisierte
+            Arbeitsweisen und
+            hinterlegtes Wissen.
+          </li>
+        </ul>
+
+        <p>
+          Vor der Nutzung solltest
+          du prüfen, welche
+          Funktionen dein
+          gewünschter Tarif enthält,
+          wie Bildkontingente
+          geregelt sind und
+          welche Datenschutz-
+          und Vertragsbedingungen
+          gelten.
+        </p>
+
+        <a
+          class="btn"
+          href="https://weaver.s-theempire.at/preise"
+          target="_blank"
+          rel="noopener noreferrer">
+          Weaver-Tarife ansehen ↗
+        </a>
+
+      </section>
+
+      <!-- 09 -->
+
+      <section id="faq" class="reveal">
+
+        <h2>9. Häufige Fragen zu Weaver und LiORA</h2>
+
+        <div class="faq">
+
+          <details>
+            <summary>Ist Weaver dasselbe wie LiORA?</summary>
+            <p>
+              Nein. Weaver ist die
+              KI-Arbeitsplattform
+              von S The Empire.
+              LiORA ist ein
+              spezialisierter
+              kreativer und
+              strategischer Assistent,
+              der auf Weaver
+              weiterentwickelt wird.
+            </p>
+          </details>
+
+          <details>
+            <summary>Was macht LiORA außer Bildern?</summary>
+            <p>
+              LiORA unterstützt
+              bei Content-Strategie,
+              Zielgruppen, Botschaften,
+              Texten, Hooks,
+              Karussell-Konzepten,
+              Bildwelten sowie
+              Bild- und Videoprompts.
+            </p>
+          </details>
+
+          <details>
+            <summary>Hat LiORA eine eigene kreative Sprache?</summary>
+            <p>
+              Ja. LiORA arbeitet
+              mit einer eigenen
+              kreativen Ausrichtung,
+              spezialisierten
+              Anweisungen und
+              hinterlegtem Wissen.
+              Dadurch soll eine
+              konsistente strategische
+              und visuelle
+              Arbeitsweise entstehen.
+            </p>
+          </details>
+
+          <details>
+            <summary>Kann Weaver Bilder generieren?</summary>
+            <p>
+              Ja, laut Anbieter
+              gehört KI-Bildgenerierung
+              zu den Funktionen.
+              Die verfügbaren Modelle
+              und Kontingente
+              können sich ändern.
+            </p>
+          </details>
+
+          <details>
+            <summary>Kann Weaver Videos generieren?</summary>
+            <p>
+              LiORA kann
+              Videokonzepte und
+              Videoprompts erstellen.
+              Ob eine direkte
+              Videogenerierung
+              innerhalb von Weaver
+              verfügbar ist,
+              sollte anhand der
+              aktuellen Plattform-
+              und Kontofunktionen
+              geprüft werden.
+            </p>
+          </details>
+
+          <details>
+            <summary>Kann ich eigene Assistenten erstellen?</summary>
+            <p>
+              Laut Anbieter ja.
+              Die Plattform beschreibt
+              eigene spezialisierte
+              KI-Assistenten und
+              eine persönliche
+              Wissensdatenbank.
+            </p>
+          </details>
+
+          <details>
+            <summary>Bekomme ich mit Weaver automatisch Zugang zu LiORA?</summary>
+            <p>
+              Nein, das sollte
+              nicht vorausgesetzt werden.
+              Ein Weaver-Konto
+              und der Zugang
+              zu einem bestimmten
+              LiORA-Assistenten
+              sind unterschiedliche Dinge.
+            </p>
+          </details>
+
+          <details>
+            <summary>Was kostet Weaver?</summary>
+            <p>
+              Aktuelle Tarife,
+              Funktionen und
+              Kontingente findest du
+              auf der
+              <a
+                href="https://weaver.s-theempire.at/preise"
+                target="_blank"
+                rel="noopener noreferrer">
+                offiziellen Weaver-Preisseite
+              </a>.
+            </p>
+          </details>
+
+        </div>
+
+      </section>
+
+      <!-- FAZIT -->
+
+      <section class="reveal">
+
+        <h2>Fazit: Die Plattform ist die Grundlage. Die Arbeitsweise macht den Unterschied.</h2>
+
+        <p>
+          Weaver verbindet
+          unterschiedliche
+          KI-Funktionen in
+          einer Arbeitsumgebung.
+          Damit bietet die
+          Plattform laut Anbieter
+          Möglichkeiten für
+          Content-Erstellung,
+          eigene Assistenten
+          und visuelle Produktion.
+        </p>
+
+        <p>
+          Das Beispiel LiORA
+          zeigt, wie diese
+          Möglichkeiten durch
+          eine eigene kreative
+          Sprache, spezialisiertes
+          Wissen und eine
+          klare Strategie
+          ergänzt werden können.
+        </p>
+
+        <p>
+          Denn hochwertiger
+          Content beginnt
+          nicht erst beim
+          fertigen Bild.
+          Er beginnt bei
+          der Frage, welche
+          Botschaft vermittelt
+          werden soll und
+          wie Text, Bild
+          und Video
+          zusammenwirken.
+        </p>
+
+        <div class="highlight">
+          <strong>
+            Weaver liefert die
+            technische Arbeitsumgebung.
+            LiORA verbindet
+            Strategie, Content
+            und kreative Umsetzung.
+          </strong>
+        </div>
+
+        <p>
+          Wer KI langfristig
+          für Content und
+          digitale Arbeit
+          einsetzen möchte,
+          sollte deshalb
+          nicht nur einzelne
+          Funktionen vergleichen,
+          sondern auch die
+          Qualität des gesamten
+          Arbeitsprozesses betrachten.
+        </p>
+
+      </section>
+
+      <!-- QUELLEN -->
+
+      <section id="quellen" class="reveal">
+
+        <h2>10. Quellen und weitere Informationen</h2>
+
+        <div class="sources">
+
+          <ul>
+
+            <li>
+              <a
+                href="https://weaver.s-theempire.at/blog/weaver-eine-ehrliche-ki-gebaut-fuer-europa"
+                target="_blank"
+                rel="noopener noreferrer">
+                Weaver: Eine ehrliche KI – gebaut für Europa
+              </a>
+              <br>
+              Anbieterbeschreibung,
+              veröffentlicht am 16. Mai 2026.
+            </li>
+
+            <li>
+              <a
+                href="https://weaver.s-theempire.at/preise"
+                target="_blank"
+                rel="noopener noreferrer">
+                Offizielle Weaver-Preisübersicht
+              </a>
+              <br>
+              Funktionen, Tarife
+              und Kontingente.
+            </li>
+
+            <li>
+              <a
+                href="https://weaver.s-theempire.at/blog/nano-banana-2-pro-jetzt-in-auralis-weaver"
+                target="_blank"
+                rel="noopener noreferrer">
+                Nano Banana 2 & Pro – jetzt in Auralis & Weaver
+              </a>
+              <br>
+              Anbieterbeitrag,
+              veröffentlicht am 12. Mai 2026.
+            </li>
+
+            <li>
+              <a
+                href="https://weaver.s-theempire.at/"
+                target="_blank"
+                rel="noopener noreferrer">
+                Offizielle Weaver-Startseite
+              </a>
+            </li>
+
+          </ul>
+
+          <p class="fineprint">
+            Informationsstand:
+            28. Oktober 2026.
+            Dieser Beitrag ist
+            eine redaktionelle
+            Vorstellung auf
+            Creatorbase und
+            keine offizielle
+            Produktdokumentation
+            von S The Empire.
+            Angaben zu
+            Plattformfunktionen
+            beruhen auf
+            Anbieterinformationen.
+            Der LiORA-Workflow
+            beschreibt eine
+            individuelle kreative
+            Einrichtung.
+          </p>
+
+        </div>
+
+      </section>
+
+    </article>
   </div>
-</section>
+
+  <!-- WEITERLESEN -->
+
+  <section class="related">
+    <div class="container">
+
+      <div class="eyebrow">
+        CREATORBASE · WEITERLESEN
+      </div>
+
+      <h2 class="reveal">
+        Mehr über KI und Content.
+      </h2>
+
+      <div class="related-grid">
+
+        <a
+          class="reveal"
+          href="/artikel/ki-fuer-content-nutzen.html">
+          KI für Content nutzen
+          <span>GUIDE LESEN ↗</span>
+        </a>
+
+        <a
+          class="reveal"
+          href="/artikel/ki-bilder-fuer-social-media.html">
+          KI-Bilder für Social Media
+          <span>GUIDE LESEN ↗</span>
+        </a>
+
+        <a
+          class="reveal"
+          href="/artikel/ki-fotografie-fuer-content.html">
+          KI-Fotografie für Content
+          <span>GUIDE LESEN ↗</span>
+        </a>
+
+        <a
+          class="reveal"
+          href="/blog.html">
+          Alle Creatorbase-Artikel
+          <span>ZUM BLOG ↗</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
   <div class="container">
-    <div class="footer-logo">Creatorbase<em>✦</em></div>
+
+    <div class="footer-logo">
+      Creatorbase<em>✦</em>
+    </div>
 
     <div class="footer-bottom">
       <span>Marketing · Content · Wachstum</span>
@@ -774,8 +1836,56 @@
       <a href="/impressum.html">Impressum</a>
       <a href="/datenschutz.html">Datenschutz</a>
     </div>
+
   </div>
 </footer>
+
+<!-- SANFTE SCROLL-ANIMATIONEN -->
+
+<script>
+  (function () {
+    const elements = document.querySelectorAll(".reveal");
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold:0.08,
+        rootMargin:"0px 0px -30px 0px"
+      }
+    );
+
+    elements.forEach(function (element) {
+      const rect = element.getBoundingClientRect();
+
+      if (rect.top < window.innerHeight) {
+        element.classList.add("is-visible");
+      }
+    });
+
+    document.documentElement.classList.add("js-motion");
+
+    elements.forEach(function (element) {
+      if (!element.classList.contains("is-visible")) {
+        observer.observe(element);
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
